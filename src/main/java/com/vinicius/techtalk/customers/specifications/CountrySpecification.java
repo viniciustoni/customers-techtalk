@@ -18,12 +18,12 @@ public final class CountrySpecification {
     }
 
     public CountrySpecification name(final String name) {
-        booleanBuilder.and(qCountry.name.eq(name));
+        booleanBuilder.and(qCountry.name.equalsIgnoreCase(name));
         return this;
     }
     
-    public CountrySpecification countryCode(final String name) {
-        booleanBuilder.and(qCountry.countryCode.eq(name));
+    public CountrySpecification countryCode(final String countryCode) {
+        booleanBuilder.and(qCountry.countryCode.eq(countryCode));
         return this;
     }
     
