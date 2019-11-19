@@ -1,3 +1,5 @@
 docker-compose up -d
 docker-compose run db psql -h my_local_postgres -U postgres
 
+docker-compose run db psql -h my_local_postgres -U customer
+

@@ -30,8 +30,11 @@ public class Client {
     @Column(name = "NAME", nullable = false)
     private String name;
 
-    @Column(name = "BIRTHDAY", columnDefinition = "DATE", nullable = false)
-    private LocalDate birthday;
+    @Column(name = "ACTIVE", nullable = false)
+    private Boolean active;
+    
+    @Column(name = "BIRTH", columnDefinition = "DATE", nullable = false)
+    private LocalDate birth;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "COUNTRY_ID", referencedColumnName = "ID", updatable = false, insertable = false)

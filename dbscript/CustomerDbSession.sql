@@ -1,19 +1,20 @@
-CREATE SEQUENCE country_seq START 1;
+CREATE SEQUENCE country_seq START WITH 1;
 create table country (
     id numeric(5) primary key,
     name varchar(100) not null,
     country_code varchar(5) not null UNIQUE
 );
 
-CREATE SEQUENCE client_seq START 1;
+CREATE SEQUENCE client_seq START WITH 1;
 create table client (
     id numeric(20) primary key,
     name varchar(100) not null,
-    birthday date not null,
+    active boolean not null,
+    birth date,
     country_id numeric(5) references country(id)
 );
 
-CREATE SEQUENCE contact_seq START 1;
+CREATE SEQUENCE contact_seq START WITH 1;
 create table contact (
     id numeric(20) primary key,
     type varchar(30) not null,
@@ -24,7 +25,7 @@ create table contact (
     client_id numeric(20) not null references client(id)
 );
 
-CREATE SEQUENCE address_seq START 1;
+CREATE SEQUENCE address_seq START WITH 1;
 create table address (
     id numeric(20) primary key,
     type varchar(30) not null,
@@ -48,18 +49,18 @@ insert into country (id, name, country_code)
   values(nextval('country_seq'), 'USA', '+1');
 
 -- Insert into client table
-insert into client (id, name, birthday, country_id)
-  values (nextval('client_seq'), 'Vinicius Antonio Gai', to_date('19881112','YYYYMMDD'), 1);
-insert into client (id, name, birthday, country_id)
-  values (nextval('client_seq'), 'Frédéric Chopin', to_date('18100301','YYYYMMDD'), 2);
-insert into client (id, name, birthday, country_id)
-  values (nextval('client_seq'), 'Jerzy Kosiński', null, 2);
-insert into client (id, name, birthday, country_id)
-  values (nextval('client_seq'), 'Marie Bashkirtseff', null, 3);
-insert into client (id, name, birthday, country_id)
-  values (nextval('client_seq'), 'Angelo', null, null);
-insert into client (id, name, birthday, country_id)
-  values (nextval('client_seq'), 'Will Smith', to_date('19680925','YYYYMMDD'), 4);
+insert into client (id, name, birthday, active, country_id)
+  values (nextval('client_seq'), 'Vinicius Antonio Gai', to_date('19881112','YYYYMMDD'), true, 1);
+insert into client (id, name, birthday, active, country_id)
+  values (nextval('client_seq'), 'Frédéric Chopin', to_date('18100301','YYYYMMDD'), true, 2);
+insert into client (id, name, birthday, active, country_id)
+  values (nextval('client_seq'), 'Jerzy Kosiński', null, true, 2);
+insert into client (id, name, birthday, active, country_id)
+  values (nextval('client_seq'), 'Marie Bashkirtseff', null, false, 3);
+insert into client (id, name, birthday, active, country_id)
+  values (nextval('client_seq'), 'Angelo', null, true, null);
+insert into client (id, name, birthday, active, country_id)
+  values (nextval('client_seq'), 'Will Smith', to_date('19680925','YYYYMMDD'), false, 4);
 
 -- Insert into Address
 insert into address(id, type, address, number, complement, zipcode, city, country_id, client_id)

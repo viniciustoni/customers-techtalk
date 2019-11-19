@@ -1,14 +1,10 @@
 package com.vinicius.techtalk.customers.specifications;
 
-
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.types.Predicate;
 import com.vinicius.techtalk.customers.entity.QCountry;
 
-public final class CountrySpecification {
+public final class CountrySpecification extends AbstractSpecification {
 
     private final QCountry qCountry = QCountry.country;
-    private final BooleanBuilder booleanBuilder = new BooleanBuilder();
 
     private CountrySpecification() {
     }
@@ -18,16 +14,12 @@ public final class CountrySpecification {
     }
 
     public CountrySpecification name(final String name) {
-        booleanBuilder.and(qCountry.name.equalsIgnoreCase(name));
+        where().and(qCountry.name.equalsIgnoreCase(name));
         return this;
     }
-    
+
     public CountrySpecification countryCode(final String countryCode) {
-        booleanBuilder.and(qCountry.countryCode.eq(countryCode));
+        where().and(qCountry.countryCode.eq(countryCode));
         return this;
-    }
-    
-    public Predicate build() {
-        return booleanBuilder;
     }
 }

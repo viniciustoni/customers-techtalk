@@ -22,6 +22,9 @@ public class CountryDaoImpl extends SimpleJpaRepository<Country, Long> implement
         this.entityManager = em;
     }
 
+    /**
+     * Only for TechTalk proposal
+     */
     public Optional<Country> findByNameJPAQuery(final String name) {
 
         final StringBuilder sqlBuilder = new StringBuilder();
