@@ -24,7 +24,7 @@ public class CountryRest {
         this.countryService = countryService;
     }
 
-    @RequestMapping(method = GET, path = "/{name}/{countryCode}", produces = APPLICATION_JSON_VALUE)
+    @RequestMapping(method = GET, path = "/name/{name}/countryCode/{countryCode}", produces = APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get countries by name and country code")
     public ResponseEntity<CountryDto> findByNameAndCountryCode(@PathVariable("name") final String name,
             @PathVariable("countryCode") final String countryCode) {

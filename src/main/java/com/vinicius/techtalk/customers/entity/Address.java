@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.vinicius.techtalk.customers.entity.ennumerated.AdressType;
+import com.vinicius.techtalk.customers.entity.ennumerated.AddressType;
 
 import lombok.Data;
 
@@ -31,7 +31,7 @@ public class Address {
 
     @Enumerated(STRING)
     @Column(name = "TYPE", nullable = false)
-    private AdressType type;
+    private AddressType type;
 
     @Column(name = "ADDRESS")
     private String address;

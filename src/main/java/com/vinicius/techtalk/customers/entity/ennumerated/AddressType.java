@@ -1,5 +1,5 @@
 package com.vinicius.techtalk.customers.entity.ennumerated;
 
-public enum AdressType {
+public enum AddressType {
     HOME, WORK
 }

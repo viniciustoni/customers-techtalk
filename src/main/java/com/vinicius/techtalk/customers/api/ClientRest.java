@@ -42,7 +42,7 @@ public class ClientRest {
         return new ResponseEntity<>(clientService.findActiveGratherThanBirthDate(startDate), FOUND);
     }
 
-    @RequestMapping(method = GET, path = "/active/birt/Between/{startDate}/{endDate}", produces = APPLICATION_JSON_VALUE)
+    @RequestMapping(method = GET, path = "/active/birt/between/{startDate}/{endDate}", produces = APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get all actives clients that was birthed during these dates.")
     public ResponseEntity<List<ClientDto>> findActiveBetweenBirthDate(
             @PathVariable("startDate") @DateTimeFormat(iso = ISO.DATE) final LocalDate startBirthDate,
