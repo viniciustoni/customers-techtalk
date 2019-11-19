@@ -22,10 +22,10 @@ public class Country {
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "NAME", nullable = false)
+    @Column(name = "NAME", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "COUNTRY_CODE", nullable = false)
+    @Column(name = "COUNTRY_CODE", nullable = false, unique = true)
     private String countryCode;
 
 }
