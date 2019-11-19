@@ -16,5 +16,4 @@ public interface ClientMapper {
 
     @Mapping(source = "country", target = "countryDto")
     ClientDto clientToClientDto(Client client);
-
 }

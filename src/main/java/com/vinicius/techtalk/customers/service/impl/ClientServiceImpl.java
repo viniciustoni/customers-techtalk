@@ -6,6 +6,8 @@ import static java.util.stream.StreamSupport.stream;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.vinicius.techtalk.customers.dto.ClientDto;
 import com.vinicius.techtalk.customers.entity.Client;
 import com.vinicius.techtalk.customers.mapper.ClientMapper;
@@ -13,6 +15,7 @@ import com.vinicius.techtalk.customers.repository.ClientRepository;
 import com.vinicius.techtalk.customers.service.ClientService;
 import com.vinicius.techtalk.customers.specifications.ClientSpecification;
 
+@Service
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
